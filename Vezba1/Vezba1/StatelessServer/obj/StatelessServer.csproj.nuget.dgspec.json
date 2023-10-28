@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\Vezba1\\Vezba1\\StatelessServer\\StatelessServer.csproj": {}
+    "C:\\Users\\User\\Desktop\\Cloud_2023-24\\Vezba1\\Vezba1\\StatelessServer\\StatelessServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\Vezba1\\Vezba1\\StatelessServer\\StatelessServer.csproj": {
+    "C:\\Users\\User\\Desktop\\Cloud_2023-24\\Vezba1\\Vezba1\\StatelessServer\\StatelessServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\Vezba1\\Vezba1\\StatelessServer\\StatelessServer.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\Cloud_2023-24\\Vezba1\\Vezba1\\StatelessServer\\StatelessServer.csproj",
         "projectName": "StatelessServer",
-        "projectPath": "C:\\Users\\User\\Desktop\\Vezba1\\Vezba1\\StatelessServer\\StatelessServer.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\Cloud_2023-24\\Vezba1\\Vezba1\\StatelessServer\\StatelessServer.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\Vezba1\\Vezba1\\StatelessServer\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\Cloud_2023-24\\Vezba1\\Vezba1\\StatelessServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,7 +22,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\Microsoft SDKs\\Azure\\.NET": {}
+          "C:\\Program Files\\Microsoft SDKs": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -40,6 +41,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.ServiceFabric": {
+              "target": "Package",
+              "version": "[10.0.1816, )"
+            },
             "Microsoft.ServiceFabric.Services": {
               "target": "Package",
               "version": "[7.0.1816, )"
