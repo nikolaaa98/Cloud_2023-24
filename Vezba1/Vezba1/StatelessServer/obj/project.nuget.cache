@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "s5MryiIU2/kPn561Elye7Hps+uFEsDtSw8zu9m93I81v9+qMDs924Sej8m7aLb6GY3NY5fc+bY71ubwA7FPLdA==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\User\\Desktop\\Vezba1\\Vezba1\\StatelessServer\\StatelessServer.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "The local source 'C:\\Program Files\\Microsoft SDKs\\Azure\\.NET' doesn't exist.",
+      "libraryId": "Microsoft.ServiceFabric.Services"
+    }
+  ]
+}
