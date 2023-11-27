@@ -1,3 +1,36 @@
-﻿@{
+﻿@using static CommonLibrary.Book
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
+<form action="/Home/Validate" method="post">
+    <label>BookId : </label>
+    <input type="text" name="bookID" />
+    <br />
+    <label>Price</label>
+    <input type="number" name="price" />
+    <br />
+    <label>Name</label>
+    <input type="text" name="name" />
+    <br />
+    <label>Writter Name : </label>
+    <input type="text" name="writterName" />
+    <br />
+    <label>Quantity</label>
+    <input type="number" name="quantity" />
+    <br />
+    <label>UserId : </label>
+    <input type="text" name="userID" />
+    <br />
+    <label>User Name : </label>
+    <input type="text" name="userName" />
+    <br />
+    <label>User LastName : </label>
+    <input type="text" name="userLastName" />
+    <br />
+    <label>Balance : </label>
+    <input type="number" name="balance" />
+    <br />
+    <input type="submit" value="Send" />
+</form>

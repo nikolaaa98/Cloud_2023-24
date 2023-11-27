@@ -116,6 +116,94 @@
             </summary>
             <returns>String representing the object.</returns>
         </member>
+        <member name="T:System.Fabric.Query.BlockListResult">
+            <summary>
+            Represents BlockList information.
+            </summary>
+        </member>
+        <member name="M:System.Fabric.Query.BlockListResult.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the BlockListResult class.
+            </summary>
+            <param name="nodeName">Name of the node in block list.</param>
+        </member>
+        <member name="M:System.Fabric.Query.BlockListResult.CreateFromNative(System.Fabric.Interop.NativeTypes.FABRIC_BLOCK_LIST_QUERY_RESULT_ITEM)">
+            <summary>
+            Initializes a new instance from native object.
+            </summary>
+            <param name="nativeParameter">Represents native object.</param>
+            <returns>New instance of BlockListResult.</returns>
+        </member>
+        <member name="M:System.Fabric.Query.BlockListResult.op_GreaterThan(System.Fabric.Query.BlockListResult,System.Fabric.Query.BlockListResult)">
+            <summary>
+            Compares two BlockListResult objects by their NodeName parameters
+            </summary>
+            <param name="first">Represents first object for comparison.</param>
+            <param name="second">Represents second object for comparison.</param>
+            <returns>Boolean result of comparison</returns>
+        </member>
+        <member name="M:System.Fabric.Query.BlockListResult.op_LessThan(System.Fabric.Query.BlockListResult,System.Fabric.Query.BlockListResult)">
+            <summary>
+            Compares two BlockListResult objects by their NodeName parameters
+            </summary>
+            <param name="first">Represents first object for comparison.</param>
+            <param name="second">Represents second object for comparison.</param>
+            <returns>Boolean result of comparison</returns>
+        </member>
+        <member name="P:System.Fabric.Query.BlockListResult.NodeName">
+            <summary>
+            Gets or sets name of the node for which this information is
+            provided.
+            </summary>
+        </member>
+        <member name="M:System.Fabric.Query.BlockListResult.ToString">
+            <summary>
+            Returns string representation of the object.
+            </summary>
+            <returns>String representing the object.</returns>
+        </member>
+        <member name="T:System.Fabric.Query.BlockListResultList">
+            <summary>
+            Represents data structure that contains list of blocked nodes
+            </summary>
+        </member>
+        <member name="M:System.Fabric.Query.BlockListResultList.#ctor">
+            <summary>
+            Default constructor for BlockListResultList.
+            </summary>
+        </member>
+        <member name="M:System.Fabric.Query.BlockListResultList.#ctor(System.Collections.Generic.IList{System.Fabric.Query.BlockListResult})">
+            <summary>
+            Constructor for BlockListResultList.
+            </summary>
+            <param name="list">List of BlockListResult.</param>
+        </member>
+        <member name="M:System.Fabric.Query.BlockListResultList.CreateFromNativeListResult(System.Fabric.Interop.NativeClient.IFabricGetBlockListResult)">
+            <summary>
+            Initializes a new instance from native object.
+            </summary>
+            <param name="nativeResult">Represents native object.</param>
+            <returns>New instance of BlockListResultList.</returns>
+        </member>
+        <member name="M:System.Fabric.Query.BlockListResultList.CreateFromNative(System.Fabric.Interop.NativeTypes.FABRIC_BLOCK_LIST_QUERY_RESULT_LIST*,System.Fabric.Interop.NativeTypes.FABRIC_PAGING_STATUS*)">
+            <summary>
+            Initializes a new instance from native object.
+            </summary>
+            <param name="nativeList">Represents native object of items.</param>
+            <param name="nativePagingStatus">Represents native object of paging status.</param>
+            <returns>New instance of BlockListResultList.</returns>
+        </member>
+        <member name="M:System.Fabric.Query.BlockListResultList.ToString">
+            <summary>
+            Returns string representation of the object.
+            </summary>
+            <returns>String representing the object.</returns>
+        </member>
+        <member name="M:System.Fabric.Query.BlockListResultList.Sort">
+            <summary>
+            Sorting list of results;
+            </summary>
+        </member>
         <member name="T:System.Fabric.Query.UpdatePartitionLoadResult">
             <summary>
             <para>Specifies the output per partition of the query
@@ -1027,6 +1115,14 @@
             </summary>
             <value>
             <para>The list of load reports for auxiliary role of this partition.</para>
+            </value>
+        </member>
+        <member name="P:System.Fabric.Query.PartitionLoadInformation.MaximumLoadMetricReports">
+            <summary>
+            <para>Gets the list of maximum load reports for replicas of this partition.</para>
+            </summary>
+            <value>
+            <para>The list of maximum load reports for replicas of this partition.</para>
             </value>
         </member>
         <member name="T:System.Fabric.Query.ReplicaLoadInformation">
@@ -3730,6 +3826,14 @@
             <para>Returns <see cref="T:System.Fabric.NodeDeactivationIntent" />.</para>
             </value>
         </member>
+        <member name="P:System.Fabric.Query.NodeDeactivationTask.Description">
+            <summary>
+            <para>The node deactivation description for the node deactivation task.</para>
+            </summary>
+            <value>
+            <para>Returns <see cref="T:System.String" />.</para>
+            </value>
+        </member>
         <member name="T:System.Fabric.Query.NodeDeactivationResult">
             <summary>
             <para>Contains the detailed deactivation information about a node.</para>
@@ -4851,6 +4955,16 @@
             <para>Partition is getting deleted.</para>
             </summary>
         </member>
+        <member name="F:System.Fabric.Query.ServicePartitionStatus.Disabling">
+            <summary>
+            <para>Partition is getting disabled.</para>
+            </summary>
+        </member>
+        <member name="F:System.Fabric.Query.ServicePartitionStatus.Disabled">
+            <summary>
+            <para>Partition has been disabled.</para>
+            </summary>
+        </member>
         <member name="T:System.Fabric.Query.ServiceReplicaList">
             <summary>
             <para>Contains the replica information for a Service Fabric Partition.</para>
@@ -5761,6 +5875,16 @@
             Creation or deletion was terminated due to persistent failures.
             </summary>
         </member>
+        <member name="F:System.Fabric.Query.ServiceStatus.Disabling">
+            <summary>
+            The service is being disabled.
+            </summary>
+        </member>
+        <member name="F:System.Fabric.Query.ServiceStatus.Disabled">
+            <summary>
+            The service has been disabled.
+            </summary>
+        </member>
         <member name="T:System.Fabric.Query.ServiceTypeList">
             <summary>
             <para>Represents a list of service type.</para>
@@ -6097,6 +6221,14 @@
         <member name="P:System.Fabric.Query.StatefulServiceReplica.ReplicaRole">
             <summary>
             <para>Gets the replica role.</para>
+            </summary>
+            <value>
+            <para>Returns <see cref="T:System.Fabric.ReplicaRole" />.</para>
+            </value>
+        </member>
+        <member name="P:System.Fabric.Query.StatefulServiceReplica.PreviousReplicaRole">
+            <summary>
+            <para>Gets the previous replica role. When the partition is not undergoing reconfiguration, this field is reset to None.</para>
             </summary>
             <value>
             <para>Returns <see cref="T:System.Fabric.ReplicaRole" />.</para>
@@ -6787,6 +6919,30 @@
             </summary>
             <value>
             <para>True if this is a node-by-node upgrade, false otherwise.</para>
+            </value>
+        </member>
+        <member name="P:System.Fabric.ApplicationUpgradeProgress.HealthCheckElapsedTime">
+            <summary>
+            <para>Gets the estimated elapsed time spent in the current health check phase.</para>
+            </summary>
+            <value>
+            <para>The estimated elapsed time spent in the current health check phase.</para>
+            </value>
+        </member>
+        <member name="P:System.Fabric.ApplicationUpgradeProgress.HealthCheckPhase">
+            <summary>
+            <para>Gets the monitored upgrade health check phase for this upgrade progress.</para>
+            </summary>
+            <value>
+            <para>The monitored upgrade health check phase for this upgrade progress.</para>
+            </value>
+        </member>
+        <member name="P:System.Fabric.ApplicationUpgradeProgress.HealthCheckFlips">
+            <summary>
+            <para>Gets the number of health flips for the current health check.</para>
+            </summary>
+            <value>
+            <para>The number of times the health evaluation has toggled, causing the HealthCheckPhase to change and resetting the HealthCheckElapsedTime.</para>
             </value>
         </member>
         <member name="M:System.Fabric.ApplicationUpgradeProgress.ToString">
@@ -9557,6 +9713,11 @@
         <member name="F:System.Fabric.Common.Tracing.EventChannel.Audit">
             <summary>
             Audit channel.
+            </summary>
+        </member>
+        <member name="F:System.Fabric.Common.Tracing.EventChannel.Telemetry">
+            <summary>
+            Telemetry channel.
             </summary>
         </member>
         <member name="M:System.Fabric.Common.Tracing.EventDataArrayBuilder.TruncateStringVariants(System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@,System.Fabric.Common.Tracing.Variant@)">
@@ -15751,6 +15912,74 @@
             </para>
             </summary>
         </member>
+        <member name="T:System.Fabric.Description.ServiceSensitivityDescription">
+            <summary>
+            <para>Describes sensitivities for different types of replicas.</para>
+            </summary>
+        </member>
+        <member name="M:System.Fabric.Description.ServiceSensitivityDescription.#ctor">
+            <summary>
+            <para>Initializes an empty instance of the <see cref="T:System.Fabric.Description.ServiceSensitivityDescription" /> class.</para>
+            </summary>
+        </member>
+        <member name="M:System.Fabric.Description.ServiceSensitivityDescription.#ctor(System.UInt32,System.UInt32,System.UInt32,System.Boolean)">
+            <summary>
+            <para>Initializes a new instance of the <see cref="T:System.Fabric.Description.ServiceSensitivityDescription" /> class with given values.</para>
+            </summary>
+        </member>
+        <member name="P:System.Fabric.Description.ServiceSensitivityDescription.PrimaryDefaultSensitivity">
+            <summary>
+            <para>Gets or sets the sensitivity of the primary replica.</para>
+            </summary>
+            <value>
+            <para>The default primary replica sensitivity of a service.</para>
+            </value>
+        </member>
+        <member name="P:System.Fabric.Description.ServiceSensitivityDescription.SecondaryDefaultSensitivity">
+            <summary>
+            <para>Gets or sets the sensitivity of the secondary replica.</para>
+            </summary>
+            <value>
+            <para>The default secondary replica sensitivity of a service.</para>
+            </value>
+        </member>
+        <member name="P:System.Fabric.Description.ServiceSensitivityDescription.AuxiliaryDefaultSensitivity">
+            <summary>
+            <para>Gets or sets the sensitivity of the auxiliary replica.</para>
+            </summary>
+            <value>
+            <para>The default secondary replica sensitivity of a service.</para>
+            </value>
+        </member>
+        <member name="P:System.Fabric.Description.ServiceSensitivityDescription.IsMaximumSensitivity">
+            <summary>
+            <para>Gets or sets the isMaximumSensitivity parameter.</para>
+            </summary>
+            <value>
+            <para>Whether the sensitivities are set to maximum.</para>
+            </value>
+        </member>
+        <member name="M:System.Fabric.Description.ServiceSensitivityDescription.ToString(System.Boolean)">
+            <summary>
+            <para>
+            Returns a string of the ServiceSensitivityDescription.
+            </para>
+            </summary>
+        </member>
+        <member name="M:System.Fabric.Description.ServiceSensitivityDescription.Equals(System.Object)">
+            <summary>
+            <para>
+            Returns true if the given object is equal to this ServiceSensitivityDescription object.
+            </para>
+            </summary>
+        </member>
+        <member name="M:System.Fabric.Description.ServiceSensitivityDescription.GetHashCode">
+            <summary>
+            <para>
+            Returns hash code of ServiceSensitivityDescription object.
+            </para>
+            </summary>
+        </member>
         <member name="T:System.Fabric.Description.RollingUpgradeMonitoringPolicy">
             <summary>
             <para>Represents a class to encapsulate a rolling upgrade monitoring policy.</para>
@@ -17248,6 +17477,14 @@
             <para>This property is deprecated, please use the corresponding property in the derived class.</para>
             </remarks>
         </member>
+        <member name="P:System.Fabric.Description.ServiceLoadMetricDescription.MaximumLoad">
+            <summary>  
+            <para>Please refer to the derived class <see cref="T:System.Fabric.Description.StatefulServiceLoadMetricDescription"/></para>
+            </summary>  
+            <remarks>
+            <para>This property is deprecated, please use the corresponding property in the derived class.</para>
+            </remarks>
+        </member>
         <member name="M:System.Fabric.Description.ServiceLoadMetricDescription.ToString(System.Boolean)">
             <summary>
             Pretty print out details of <see cref="T:System.Fabric.Description.StatefulServiceLoadMetricDescription"/>
@@ -18123,6 +18360,18 @@
             </para>
             </remarks>
         </member>
+        <member name="P:System.Fabric.Description.StatefulServiceDescription.ServiceSensitivityDescription">
+            <summary>
+            <para>Describes sensitivities for different types of replicas</para>
+            </summary>
+            <value>
+            <para>Describes sensitivities for different types of replicas.</para>
+            </value>
+            <remarks>
+            <para>ServiceSensitivityDescription is the section which allows user to specify the sensitivities of a replica, 
+            and mark if a replica has the maximum sensitivity.</para>
+            </remarks>
+        </member>
         <member name="T:System.Fabric.Description.StatefulServiceLoadMetricDescription">
             <summary>
             <para>Specifies a metric for a stateful service.</para>
@@ -18169,13 +18418,24 @@
             </para>        
             </remarks>
         </member>
+        <member name="P:System.Fabric.Description.StatefulServiceLoadMetricDescription.MaximumLoad">
+            <summary>        
+            <para>Gets or sets the maximum load for any type of replica of a service metric.</para>        
+            </summary>        
+            <value><para>Maximum load of any replica for a service metric.</para></value>        
+            <remarks>        
+            <para>Sets the upper bound on the load of a service metric to support collocation of multiple max sensitivity replicas. Loads reported above this value will be ignored.
+            <see cref="M:System.Fabric.IServicePartition.ReportLoad(System.Collections.Generic.IEnumerable{System.Fabric.LoadMetric})" />.        
+            </para>        
+            </remarks>
+        </member>
         <member name="M:System.Fabric.Description.StatefulServiceLoadMetricDescription.ToString">
             <summary>
             Pretty print out details of <see cref="T:System.Fabric.Description.StatefulServiceLoadMetricDescription"/>.
             </summary>
             <returns>A string representation of the <see cref="T:System.Fabric.Description.StatefulServiceLoadMetricDescription"/>.</returns>
             <example>
-            CPU,High,90,10,0
+            CPU,High,90,10,0,0
             </example>
         </member>
         <member name="T:System.Fabric.Description.StatefulServiceTypeDescription">
@@ -18310,6 +18570,18 @@
             </value>
             <remarks>
             <para>See <see cref="P:System.Fabric.Description.StatefulServiceDescription.AuxiliaryReplicaCount" />.</para>
+            </remarks>
+        </member>
+        <member name="P:System.Fabric.Description.StatefulServiceUpdateDescription.ServiceSensitivityDescription">
+            <summary>
+            <para>Describes sensitivities for different types of replicas</para>
+            </summary>
+            <value>
+            <para>Describes sensitivities for different types of replicas.</para>
+            </value>
+            <remarks>
+            <para>ServiceSensitivityDescription is the section which allows user to specify the sensitivities of a replica, 
+            and mark if a replica has the maximum sensitivity.</para>
             </remarks>
         </member>
         <member name="T:System.Fabric.Description.StatelessServiceDescription">
@@ -19170,6 +19442,90 @@
             <param name="pinCollection"></param>
             <returns>Pointer to native object.</returns>
         </member>
+        <member name="T:System.Fabric.Description.BlockListQueryDescription">
+            <summary>
+            Represents a class for specifying a query to get block list.
+            <see cref="M:System.Fabric.FabricClient.QueryClient.GetBlockListAsync(System.Fabric.Description.BlockListQueryDescription)"/>
+            </summary>
+        </member>
+        <member name="M:System.Fabric.Description.BlockListQueryDescription.#ctor(System.Uri)">
+            <summary>
+            Constructor for <see cref="T:System.Fabric.Description.BlockListQueryDescription" />.
+            </summary>
+            <param name="serviceName">
+            Name of service from which to get block list.
+            (see <see cref="P:System.Fabric.Description.BlockListQueryDescription.ServiceName"/>).
+            </param>
+        </member>
+        <member name="M:System.Fabric.Description.BlockListQueryDescription.#ctor(System.Uri,System.Fabric.BlockListType)">
+            <summary>
+            Constructor for <see cref="T:System.Fabric.Description.BlockListQueryDescription" />.
+            </summary>
+            <param name="serviceName">
+            Name of service from which to get block list.
+            (see <see cref="P:System.Fabric.Description.BlockListQueryDescription.ServiceName"/>).
+            </param>
+            <param name="listType">
+            SERVICE (default): Get service block list.
+            OVERALL: Get overall block list.
+            PREFERRED_PRIMARY: Get preferred primary domain block list.
+            PLACEMENT_TAGS: Get placement tags block list.
+            RUNNING_TAGS: Get running tags block list.
+            (see <see cref="P:System.Fabric.Description.BlockListQueryDescription.BlockListType"/>).
+            </param>
+        </member>
+        <member name="M:System.Fabric.Description.BlockListQueryDescription.#ctor(System.Uri,System.Fabric.BlockListType,System.Int64,System.String)">
+            <summary>
+            Constructor for <see cref="T:System.Fabric.Description.BlockListQueryDescription" />.
+            </summary>
+            <param name="serviceName">
+            Name of service from which to get block list. 
+            (see <see cref="P:System.Fabric.Description.BlockListQueryDescription.ServiceName"/>).
+            </param>
+            <param name="listType">
+            SERVICE (default): Get service block list.
+            OVERALL: Get overall block list.
+            PREFERRED_PRIMARY: Get preferred primary domain block list.
+            PLACEMENT_TAGS: Get placement tags block list.
+            RUNNING_TAGS: Get running tags block list.
+            (see <see cref="P:System.Fabric.Description.BlockListQueryDescription.BlockListType"/>).
+            </param>
+            <param name="maxResults">
+            The maximum number of results to be returned as part of the paged queries. 
+            This parameter defines the upper bound for the number of results returned.
+            The API may return fewer results than the specified maximum if they do not fit 
+            in the message as per the max message size restrictions defined in the configuration or if there are fewer total results.
+            If this parameter is zero or not specified, the paged query includes as many results as possible that fit in the return message.
+            </param>
+            <param name="continuationToken">Specifies id of partition that is next to be returned.</param>
+        </member>
+        <member name="P:System.Fabric.Description.BlockListQueryDescription.ServiceName">
+            <summary>
+            Name of service from which to get block list
+            </summary>
+        </member>
+        <member name="P:System.Fabric.Description.BlockListQueryDescription.BlockListType">
+            <summary>
+            SERVICE (default): Get service block list.
+            OVERALL: Get overall block list.
+            PREFERRED_PRIMARY: Get preferred primary domain block list.
+            PLACEMENT_TAGS: Get placement tags block list.
+            RUNNING_TAGS: Get running tags block list.
+            </summary>
+        </member>
+        <member name="M:System.Fabric.Description.BlockListQueryDescription.Validate(System.Fabric.Description.BlockListQueryDescription)">
+            <summary>
+            Check if queryDescription is valid.
+            </summary>
+            <param name="queryDescription">queryDescription that needs to be validated.</param>
+        </member>
+        <member name="M:System.Fabric.Description.BlockListQueryDescription.ToNative(System.Fabric.Interop.PinCollection)">
+            <summary>
+            Create native object from this class.
+            </summary>
+            <param name="pinCollection"></param>
+            <returns>Pointer to native object.</returns>
+        </member>
         <member name="T:System.Fabric.Description.UpgradeKind">
             <summary>
             <para>Enumerates the possible kinds of upgrade.</para>
@@ -19313,7 +19669,7 @@
             <param name="secondaryReplicasOrInstancesLoadEntries">List of load entries for all secondary replicas or instances, can be empty</param>
             <param name="secondaryReplicaOrInstanceLoadEntriesPerNode">List of load entries for specific secondary replica or instance, can be empty</param>
         </member>
-        <member name="M:System.Fabric.Description.PartitionMetricLoadDescription.#ctor(System.Guid,System.Collections.Generic.IList{System.Fabric.Description.MetricLoadDescription},System.Collections.Generic.IList{System.Fabric.Description.MetricLoadDescription},System.Collections.Generic.IList{System.Fabric.Description.ReplicaMetricLoadDescription},System.Collections.Generic.IList{System.Fabric.Description.MetricLoadDescription},System.Collections.Generic.IList{System.Fabric.Description.ReplicaMetricLoadDescription})">
+        <member name="M:System.Fabric.Description.PartitionMetricLoadDescription.#ctor(System.Guid,System.Collections.Generic.IList{System.Fabric.Description.MetricLoadDescription},System.Collections.Generic.IList{System.Fabric.Description.MetricLoadDescription},System.Collections.Generic.IList{System.Fabric.Description.ReplicaMetricLoadDescription},System.Collections.Generic.IList{System.Fabric.Description.MetricLoadDescription},System.Collections.Generic.IList{System.Fabric.Description.ReplicaMetricLoadDescription},System.Collections.Generic.IList{System.Fabric.Description.MetricLoadDescription})">
             <summary>
                 Constructor for PartitionMetricLoadDescription, where at least on list of load entries should be provided.
             </summary>
@@ -19323,6 +19679,7 @@
             <param name="secondaryReplicaOrInstanceLoadEntriesPerNode">List of load entries for specific secondary replica or instance, can be empty</param>
             <param name="auxiliaryReplicasLoadEntries">List of load entries for all auxiliary replicas or instances, can be empty</param>
             <param name="auxiliaryReplicaLoadEntriesPerNode">List of load entries for specific auxiliary replica or instance, can be empty</param>
+            <param name="maximumReplicaLoadEntries">List of maximum load entries for replicas, can be empty</param>
         </member>
         <member name="P:System.Fabric.Description.PartitionMetricLoadDescription.PartitionId">
             <summary>
@@ -19370,6 +19727,14 @@
             </summary>
             <value>
             <para>Returns vector of <see cref="T:System.Fabric.Description.ReplicaMetricLoadDescription"/>.</para>
+            </value>
+        </member>
+        <member name="P:System.Fabric.Description.PartitionMetricLoadDescription.MaximumReplicaLoadEntries">
+            <summary>
+            <para> Maximum replica loads of different metrics for a partition's replica. </para>
+            </summary>
+            <value>
+            <para>Returns vector of <see cref="T:System.Fabric.Description.MetricLoadDescription"/>.</para>
             </value>
         </member>
         <member name="T:System.Fabric.Description.UpdatePartitionLoadQueryDescription">
@@ -20053,6 +20418,55 @@
             </summary>
             <param name="orderingStr">Represents ordering.</param>
             <returns>Ordering type.</returns>
+        </member>
+        <member name="T:System.Fabric.BlockListType">
+            <summary>
+            Defines values for BlockListType
+            </summary>
+        </member>
+        <member name="F:System.Fabric.BlockListType.Service">
+            <summary>
+            Get service block list.
+            </summary>
+        </member>
+        <member name="F:System.Fabric.BlockListType.Overall">
+            <summary>
+            Get overall block list.
+            </summary>
+        </member>
+        <member name="F:System.Fabric.BlockListType.PreferredPrimary">
+            <summary>
+            Get preferred primary domain block list.
+            </summary>
+        </member>
+        <member name="F:System.Fabric.BlockListType.PlacementTags">
+            <summary>
+            Get placement tags block list.
+            </summary>
+        </member>
+        <member name="F:System.Fabric.BlockListType.RunningTags">
+            <summary>
+            Get running tags block list.
+            </summary>
+        </member>
+        <member name="T:System.Fabric.BlockListTypeUtility">
+            <summary>
+            Utility methods for block list type class.
+            </summary>
+        </member>
+        <member name="M:System.Fabric.BlockListTypeUtility.GetString(System.Fabric.BlockListType)">
+            <summary>
+            Get string from Ordering type.
+            </summary>
+            <param name="listType">Represents blockListType.</param>
+            <returns>String that represents blockListType.</returns>
+        </member>
+        <member name="M:System.Fabric.BlockListTypeUtility.FromString(System.String)">
+            <summary>
+            Creates BlockListType from string.
+            </summary>
+            <param name="blockListTypeStr">Represents BlockListType.</param>
+            <returns>BlockListType type.</returns>
         </member>
         <member name="T:System.Fabric.Result.StartNodeResult">
             <summary>
@@ -22403,7 +22817,44 @@
                 Service Fabric ensures that deactivation is a 'safe' process. It performs several safety checks (see <see cref="T:System.Fabric.SafetyCheckKind" />) to ensure that there is no loss of availability or data </para>
             </remarks>
         </member>
-        <member name="M:System.Fabric.FabricClient.ClusterManagementClient.DeactivateNodeAsync(System.String,System.Fabric.NodeDeactivationIntent,System.TimeSpan,System.Threading.CancellationToken)">
+        <member name="M:System.Fabric.FabricClient.ClusterManagementClient.DeactivateNodeAsync(System.String,System.Fabric.NodeDeactivationIntent,System.String)">
+            <summary>
+            <para>Deactivates a particular node with the specified <see cref="T:System.Fabric.NodeDeactivationIntent" />.</para>
+            </summary>
+            <param name="nodeName">
+            <para>The name of the node to deactivate.</para>
+            </param>
+            <param name="deactivationIntent">
+            <para>The <see cref="T:System.Fabric.NodeDeactivationIntent" /> for deactivating the node.</para>
+            </param>
+            <param name="deactivationDescription">
+            <para>The description for deactivating the node.</para>
+            </param>
+            <returns>
+            <para>A Task that represents the asynchronous acknowledgment of the request.</para>
+            </returns>
+            <exception cref="T:System.Fabric.FabricObjectClosedException">
+            <para>
+                See <see href="https://azure.microsoft.com/documentation/articles/service-fabric-errors-and-exceptions/" /> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.TimeoutException">
+            <para>
+                See <see href="https://azure.microsoft.com/documentation/articles/service-fabric-errors-and-exceptions/" /> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.Fabric.FabricException">
+            <para>
+                See also <see href="https://azure.microsoft.com/documentation/articles/service-fabric-errors-and-exceptions/" /> for handling common FabricClient failures.</para>
+            </exception>
+            <remarks>
+            <para>
+                When this API completes it implies that the intent to deactivate has been registered by the system. It does not mean that the deactivation is complete. The progress of the operation can be determined by using the <see cref="M:System.Fabric.FabricClient.QueryClient.GetNodeListAsync" /> API </para>
+            <para>
+                Once the deactivation is in progress, the deactivation intent can be “increased” but not decreased (for example, a node which is was deactivated with the <see cref="F:System.Fabric.NodeDeactivationIntent.Pause" /> intent can be deactivated further with <see cref="F:System.Fabric.NodeDeactivationIntent.Restart" />, but not the other way around. Nodes may be reactivated via <see cref="M:System.Fabric.FabricClient.ClusterManagementClient.ActivateNodeAsync(System.String)" /> any time after they are deactivated. If the deactivation is not complete this will cancel the deactivation. A node which goes down and comes back up while deactivated will still need to be reactivated before services will be placed on that node.</para>
+            <para>
+                Service Fabric ensures that deactivation is a 'safe' process. It performs several safety checks (see <see cref="T:System.Fabric.SafetyCheckKind" />) to ensure that there is no loss of availability or data </para>
+            </remarks>
+        </member>
+        <member name="M:System.Fabric.FabricClient.ClusterManagementClient.DeactivateNodeAsync(System.String,System.Fabric.NodeDeactivationIntent,System.TimeSpan,System.Threading.CancellationToken,System.String)">
             <summary>
             <para>Deactivates a particular node with the specified <see cref="T:System.Fabric.NodeDeactivationIntent" />.</para>
             </summary>
@@ -22418,6 +22869,9 @@
             </param>
             <param name="cancellationToken">
             <para>The optional cancellation token that the operation is observing. It can be used to send a notification that the operation should be canceled. Note that cancellation is advisory and that the operation may still be completed even if it is cancelled.</para>
+            </param>
+            <param name="deactivationDescription">
+            <para>The description for deactivating the node.</para>
             </param>
             <returns>
             <para>A Task that represents the asynchronous acknowledgment of the request.</para>
@@ -33089,6 +33543,56 @@
                 See also <see href="https://docs.microsoft.com/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
             </exception>
         </member>
+        <member name="M:System.Fabric.FabricClient.QueryClient.GetBlockListAsync(System.Fabric.Description.BlockListQueryDescription)">
+            <summary>
+            <para>Gets block list.</para>
+            </summary>
+            <param name="queryDescription">Describes the query to get block list.</param>
+            <returns>
+            <para>A task that represents the asynchronous query operation.</para>
+            <para>The returned task contains the information of block list as <see cref="T:System.Fabric.Query.BlockListResultList" />.</para>
+            </returns>
+            <exception cref="T:System.Fabric.FabricObjectClosedException">
+            <para>
+                See <see href="https://docs.microsoft.com/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.TimeoutException">
+            <para>
+                See <see href="https://docs.microsoft.com/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.Fabric.FabricException">
+            <para>
+                See also <see href="https://docs.microsoft.com/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+        </member>
+        <member name="M:System.Fabric.FabricClient.QueryClient.GetBlockListAsync(System.Fabric.Description.BlockListQueryDescription,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            <para>Gets block list.</para>
+            </summary>
+            <param name="queryDescription">Describes the query to get block list.</param>
+            <param name="timeout">
+            <para>Specifies the duration this operation has to complete before timing out.</para>
+            </param>
+            <param name="cancellationToken">
+            <para>Propagates notification that operations should be canceled.</para>
+            </param>
+            <returns>
+            <para>A task that represents the asynchronous query operation.</para>
+            <para>The returned task contains the information of block list as <see cref="T:System.Fabric.Query.BlockListResultList" />.</para>
+            </returns>
+            <exception cref="T:System.Fabric.FabricObjectClosedException">
+            <para>
+                See <see href="https://docs.microsoft.com/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.TimeoutException">
+            <para>
+                See <see href="https://docs.microsoft.com/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.Fabric.FabricException">
+            <para>
+                See also <see href="https://docs.microsoft.com/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+        </member>
         <member name="M:System.Fabric.FabricClient.QueryClient.GetProvisionedFabricCodeVersionListAsync">
             <summary>
             <para>Gets details for all cluster code versions provisioned in the system.</para>
@@ -35367,6 +35871,179 @@
                 See also <see href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
             </exception>
             <exception cref="T:System.ArgumentException">If <paramref name="nodeName"/> is null or empty.</exception>
+        </member>
+        <member name="M:System.Fabric.FabricClient.ServiceManagementClient.DisableServiceAsync(System.Uri,System.Fabric.DisableServiceFlag,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            <para>Disables a specified service which will remain in cluster without any replicas running. 
+            Using DisableServiceFlag, you can choose the desired behavior for the action.
+            Also takes in timeout interval, which is the maximum of time the system will allow this operation to continue before returning <see cref="T:System.TimeoutException" /> and cancellation-token that the operation is observing. 
+            </para>
+            </summary>
+            <param name="serviceName">
+            <para>The name of the service which should be disabled.</para>
+            </param>
+            <param name="disableServiceFlag">
+            <para>The identifier which chooses the behavior of Disable action (Pause is currently supported).</para>
+            </param>
+            <param name="timeout">
+            <para>The timespan that defines the maximum amount of time  will allow this operation to continue before returning a <see cref="T:System.TimeoutException" />.</para>
+            </param>
+            <param name="cancellationToken">
+            <para>The optional cancellation token that the operation is observing. It can be used to send a notification that the operation should be canceled. Note that cancellation is advisory and that the operation may still be completed even if it is cancelled.</para>
+            </param>
+            <returns>
+            <para>A Task representing the acknowledgment of the request.</para>
+            </returns>
+            <exception cref="T:System.TimeoutException">
+            <para>
+                See <see href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.Fabric.FabricException">
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.ServiceAlreadyInRequestedState"/> is returned if the service is already in requested state.</para>
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.DisableEnableServiceFeatureDisabled"/> is returned if the feature is turned off. You can toggle it by setting the feature flag AllowDisableEnableService from Failover Manager config.</para>
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.MaxAllowedDisabledServicesReached"/> is returned when you have reached the maximum allowed disabled services in the cluster. You can toggle this limit using Failover Manager config MaxAllowedDisabledServices.</para>
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.ServiceDisabled"/> is returned when there is an attempt to update a disabled service.</para>
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.ServiceDisableInProgress"/> is returned when a service is currently being disabled, and there is another attempt to disable it.</para>
+            <para>
+                See also <see href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="serviceName"/> is null or empty.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="disableServiceFlag"/> is null or empty.</exception>
+        </member>
+        <member name="M:System.Fabric.FabricClient.ServiceManagementClient.DisableServiceAsync(System.Uri,System.Fabric.DisableServiceFlag)">
+            <summary>
+            <para>Disables a specified service which will remain in cluster without any replicas running. 
+            Using DisableServiceFlag, you can choose the desired behavior for the action.
+            Also takes in timeout interval, which is the maximum of time the system will allow this operation to continue before returning <see cref="T:System.TimeoutException" /> and cancellation-token that the operation is observing. 
+            </para>
+            </summary>
+            <param name="serviceName">
+            <para>The name of the service which should be disabled.</para>
+            </param>
+            <param name="disableServiceFlag">
+            <para>The identifier which chooses the behavior of Disable action (Pause is currently supported).</para>
+            </param>
+            <returns>
+            <para>A Task representing the acknowledgment of the request.</para>
+            </returns>
+            <exception cref="T:System.TimeoutException">
+            <para>
+                See <see href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.Fabric.FabricException">
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.ServiceAlreadyInRequestedState"/> is returned if the service is already in requested state.</para>
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.DisableEnableServiceFeatureDisabled"/> is returned if the feature is turned off. You can toggle it by setting the feature flag AllowDisableEnableService from Failover Manager config.</para>
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.MaxAllowedDisabledServicesReached"/> is returned when you have reached the maximum allowed disabled services in the cluster. You can toggle this limit using Failover Manager config MaxAllowedDisabledServices.</para>
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.ServiceDisabled"/> is returned when there is an attempt to update a disabled service.</para>
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.ServiceDisableInProgress"/> is returned when a service is currently being disabled, and there is another attempt to disable it.</para>
+            <para>
+                See also <see href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="serviceName"/> is null or empty.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="disableServiceFlag"/> is null or empty.</exception>
+        </member>
+        <member name="M:System.Fabric.FabricClient.ServiceManagementClient.DisableServiceAsync(System.Uri)">
+            <summary>
+            <para>Disables a specified service which will remain in cluster without any replicas running. 
+            Using DisableServiceFlag, you can choose the desired behavior for the action.
+            Also takes in timeout interval, which is the maximum of time the system will allow this operation to continue before returning <see cref="T:System.TimeoutException" /> and cancellation-token that the operation is observing. 
+            </para>
+            </summary>
+            <param name="serviceName">
+            <para>The name of the service which should be disabled.</para>
+            </param>
+            <returns>
+            <para>A Task representing the acknowledgment of the request.</para>
+            </returns>
+            <exception cref="T:System.TimeoutException">
+            <para>
+                See <see href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.Fabric.FabricException">
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.ServiceAlreadyInRequestedState"/> is returned if the service is already in requested state.</para>
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.DisableEnableServiceFeatureDisabled"/> is returned if the feature is turned off. You can toggle it by setting the feature flag AllowDisableEnableService from Failover Manager config.</para>
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.MaxAllowedDisabledServicesReached"/> is returned when you have reached the maximum allowed disabled services in the cluster. You can toggle this limit using Failover Manager config MaxAllowedDisabledServices.</para>
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.ServiceDisabled"/> is returned when there is an attempt to update a disabled service.</para>
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.ServiceDisableInProgress"/> is returned when a service is currently being disabled, and there is another attempt to disable it.</para>
+            <para>
+                See also <see href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="serviceName"/> is null or empty.</exception>
+        </member>
+        <member name="M:System.Fabric.FabricClient.ServiceManagementClient.EnableServiceAsync(System.Uri,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            <para>Disables a specified service which will remain in cluster without any replicas running. 
+            Using DisableServiceFlag, you can choose the desired behavior for the action.
+            Also takes in timeout interval, which is the maximum of time the system will allow this operation to continue before returning <see cref="T:System.TimeoutException" /> and cancellation-token that the operation is observing. 
+            </para>
+            </summary>
+            <param name="serviceName">
+            <para>The name of the service which should be disabled.</para>
+            </param>
+            <param name="timeout">
+            <para>The timespan that defines the maximum amount of time  will allow this operation to continue before returning a <see cref="T:System.TimeoutException" />.</para>
+            </param>
+            <param name="cancellationToken">
+            <para>The optional cancellation token that the operation is observing. It can be used to send a notification that the operation should be canceled. Note that cancellation is advisory and that the operation may still be completed even if it is cancelled.</para>
+            </param>
+            <returns>
+            <para>A Task representing the acknowledgment of the request.</para>
+            </returns>
+            <exception cref="T:System.TimeoutException">
+            <para>
+                See <see href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.Fabric.FabricException">
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.ServiceAlreadyInRequestedState"/> is returned if the service is already in requested state.</para>
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.DisableEnableServiceFeatureDisabled"/> is returned if the feature is turned off. You can toggle it by setting the feature flag AllowDisableEnableService from Failover Manager config.</para>
+            <para>
+                See also <see href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="serviceName"/> is null or empty.</exception>
+        </member>
+        <member name="M:System.Fabric.FabricClient.ServiceManagementClient.EnableServiceAsync(System.Uri)">
+            <summary>
+            <para>Disables a specified service which will remain in cluster without any replicas running. 
+            Using DisableServiceFlag, you can choose the desired behavior for the action.
+            Also takes in timeout interval, which is the maximum of time the system will allow this operation to continue before returning <see cref="T:System.TimeoutException" /> and cancellation-token that the operation is observing. 
+            </para>
+            </summary>
+            <param name="serviceName">
+            <para>The name of the service which should be disabled.</para>
+            </param>
+            <returns>
+            <para>A Task representing the acknowledgment of the request.</para>
+            </returns>
+            <exception cref="T:System.TimeoutException">
+            <para>
+                See <see href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.Fabric.FabricException">
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.ServiceAlreadyInRequestedState"/> is returned if the service is already in requested state.</para>
+            <para>
+                <see cref="F:System.Fabric.FabricErrorCode.DisableEnableServiceFeatureDisabled"/> is returned if the feature is turned off. You can toggle it by setting the feature flag AllowDisableEnableService from Failover Manager config.</para>
+            <para>
+                See also <see href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-errors-and-exceptions"/> for handling common FabricClient failures.</para>
+            </exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="serviceName"/> is null or empty.</exception>
         </member>
         <member name="M:System.Fabric.FabricClient.ServiceManagementClient.RegisterServiceNotificationFilterAsync(System.Fabric.Description.ServiceNotificationFilterDescription)">
             <summary>
@@ -40890,6 +41567,46 @@
             A <see cref="T:System.Fabric.FabricErrorCode" /> that indicates that Backup Restore service is waiting for user input to conclude restore operation.
             </summary>
         </member>
+        <member name="F:System.Fabric.FabricErrorCode.DatabaseFilesCorrupted">
+            <summary>
+            A <see cref="T:System.Fabric.FabricErrorCode" /> that indicates that Service Fabric detected corruption in data stored on disk.
+            </summary>
+        </member>
+        <member name="F:System.Fabric.FabricErrorCode.InsufficientMaxLoadCapacity">
+            <summary>
+            A <see cref="T:System.Fabric.FabricErrorCode" /> that indicates that a service could not be updated to maximum sensitivity while preserving collocation.
+            </summary>
+        </member>
+        <member name="F:System.Fabric.FabricErrorCode.StoreDiskError">
+            <summary>
+            A <see cref="T:System.Fabric.FabricErrorCode" /> that indicates that Service Fabric encountered an error when accessing data stored on disk. Disable the node and check the drive for failures.
+            </summary>
+        </member>
+        <member name="F:System.Fabric.FabricErrorCode.ServiceAlreadyInRequestedState">
+            <summary>
+            A <see cref="T:System.Fabric.FabricErrorCode" /> that indicates that service is already in requested state during Disable/Enable service operation.
+            </summary>
+        </member>
+        <member name="F:System.Fabric.FabricErrorCode.DisableEnableServiceFeatureDisabled">
+            <summary>
+            A <see cref="T:System.Fabric.FabricErrorCode" /> that indicates that Disable/Enable Service feature is disabled.
+            </summary>
+        </member>
+        <member name="F:System.Fabric.FabricErrorCode.MaxAllowedDisabledServicesReached">
+            <summary>
+            A <see cref="T:System.Fabric.FabricErrorCode" /> that indicates that the client has reached a maximum of allowed disabled services in the cluster.
+            </summary>
+        </member>
+        <member name="F:System.Fabric.FabricErrorCode.ServiceDisabled">
+            <summary>
+            A <see cref="T:System.Fabric.FabricErrorCode" /> that indicates that the service is disabled.
+            </summary>
+        </member>
+        <member name="F:System.Fabric.FabricErrorCode.ServiceDisableInProgress">
+            <summary>
+            A <see cref="T:System.Fabric.FabricErrorCode" /> that indicates that the service disable is in progress.
+            </summary>
+        </member>
         <member name="T:System.Fabric.FabricException">
             <summary>
             <para>The base Service Fabric exception class.</para>
@@ -43101,6 +43818,37 @@
             <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown. </param>
             <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
         </member>
+        <member name="T:System.Fabric.FabricInsufficientMaxLoadCapacityException">
+            <summary>
+            The exception that is thrown when there is insufficient capacity to update the service to maximum sensitivity while preserving collocation
+            </summary>
+        </member>
+        <member name="M:System.Fabric.FabricInsufficientMaxLoadCapacityException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Fabric.FabricInsufficientMaxLoadCapacityException"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Fabric.FabricInsufficientMaxLoadCapacityException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Fabric.FabricInsufficientMaxLoadCapacityException"/> class with a specified error message.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+        </member>
+        <member name="M:System.Fabric.FabricInsufficientMaxLoadCapacityException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Fabric.FabricInsufficientMaxLoadCapacityException"/> class
+            with a specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference if no inner exception is specified.</param>
+        </member>
+        <member name="M:System.Fabric.FabricInsufficientMaxLoadCapacityException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Fabric.FabricInsufficientMaxLoadCapacityException"/> class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown. </param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
         <member name="T:System.Fabric.TransactionFaultedException">
             <summary>
             <para>Exception that indicates a failure due to the transaction being faulted internally by the system.</para>
@@ -43443,6 +44191,30 @@
             </summary>
             <value>
             <para>True if this is a node-by-node upgrade, false otherwise.</para>
+            </value>
+        </member>
+        <member name="P:System.Fabric.FabricUpgradeProgress.HealthCheckElapsedTime">
+            <summary>
+            <para>Gets the estimated elapsed time spent in the current health check phase.</para>
+            </summary>
+            <value>
+            <para>The estimated elapsed time spent in the current health check phase.</para>
+            </value>
+        </member>
+        <member name="P:System.Fabric.FabricUpgradeProgress.HealthCheckPhase">
+            <summary>
+            <para>Gets the monitored upgrade health check phase for this upgrade progress.</para>
+            </summary>
+            <value>
+            <para>The monitored upgrade health check phase for this upgrade progress.</para>
+            </value>
+        </member>
+        <member name="P:System.Fabric.FabricUpgradeProgress.HealthCheckFlips">
+            <summary>
+            <para>Gets the number of health flips for the current health check.</para>
+            </summary>
+            <value>
+            <para>The number of times the health evaluation has toggled, causing the HealthCheckPhase to change and resetting the HealthCheckElapsedTime.</para>
             </value>
         </member>
         <member name="M:System.Fabric.FabricUpgradeProgress.ToString">
@@ -56010,6 +56782,39 @@
             <para>Indicates that the node should be stopped.</para>
             </summary>        
         </member>
+        <member name="T:System.Fabric.DisableServiceFlag">
+            <summary>
+            <para>Describes the reason of the service deactivation.</para>
+            </summary>
+            <remarks>
+            <para>
+                The <see cref="T:System.Fabric.DisableServiceFlag" /> enumeration is provided as a part of the <see cref="M:System.Fabric.FabricClient.ServiceManagementClient.DisableServiceAsync(System.Uri,System.Fabric.DisableServiceFlag)" /> method. </para>
+            <para>
+                Service Fabric uses this information to take the correct actions when disabling a service. The flags will provide different types of behavior, but initial implementation only supports Pause flag. </para>
+            </remarks>
+        </member>
+        <member name="F:System.Fabric.DisableServiceFlag.Invalid">
+            <summary>
+            <para>Indicates that a deactivation flag is invalid. This value is not used.</para>
+            </summary>
+        </member>
+        <member name="F:System.Fabric.DisableServiceFlag.RemoveData">
+            <summary>
+            <para>Indicates that the service should be paused. </para>
+            </summary>
+            <remarks>
+            <para>
+                When this flag is used, Service Fabric will initiate deletion of replicas for all partition of the service.</para>
+            <para>
+                The <see cref="F:System.Fabric.DisableServiceFlag.RemoveData" /> flag is useful when there is a need for hardware resources. When replicas are dropped, service will remain in the Disabled state and consume no resources.</para>
+            <para> 
+                Also, the Disabled state is different as opposed to a deleted service, as service itself, along with all of its partitions, will remain acounted for, with all of its description and settings. </para>
+            <para>
+                This way, user will not need to create the service over and over again, if some scenario requires such approach.</para>
+            <para>
+                For example, if user has a service which is dormant most of the time, but still wants to keep the service in the system, that service is a good candidate to be disabled with flag RemoveData. </para>
+            </remarks>
+        </member>
         <member name="T:System.Fabric.OperationData">
             <summary>
             <para>An <see cref="T:System.Fabric.OperationData" /> is used to transfer copy state changes and copy context between replicas.</para>
@@ -58313,6 +59118,45 @@
             <see cref="M:System.Fabric.FabricClient.ClusterManagementClient.DeactivateNodeAsync(System.String,System.Fabric.NodeDeactivationIntent)" /> and 
             <see cref="M:System.Fabric.FabricClient.ClusterManagementClient.ActivateNodeAsync(System.String)" /> methods) to actually apply the upgrade on that node.
             </para>
+            </remarks>
+        </member>
+        <member name="T:System.Fabric.MonitoredUpgradeHealthCheckPhase">
+            <summary>
+            <para>Specifies the current health check phase of a monitored upgrade when upgrading an application instance or cluster.</para>
+            </summary>
+        </member>
+        <member name="F:System.Fabric.MonitoredUpgradeHealthCheckPhase.Invalid">
+            <summary>
+            <para>All Service Fabric enumerations have reserved Invalid flag.</para>
+            </summary>
+        </member>
+        <member name="F:System.Fabric.MonitoredUpgradeHealthCheckPhase.WaitDuration">
+            <summary>
+            <para>Specifies the health check is in WaitDuration phase.</para>
+            </summary>
+            <remarks>
+            <para>In this phase, ServiceFabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain.
+            The time spent in this phase is set in <see cref="P:System.Fabric.Description.RollingUpgradeMonitoringPolicy.HealthCheckWaitDuration" /> </para>
+            </remarks>
+        </member>
+        <member name="F:System.Fabric.MonitoredUpgradeHealthCheckPhase.StableDuration">
+            <summary>
+            <para>Specifies the health check is in StableDuration phase.</para>
+            </summary>
+            <remarks>
+            <para>In this phase, Service Fabric waits in order to verify that the application instance or cluster is stable before moving to the next upgrade domain or completing the upgrade.
+            This wait duration prevents undetected changes of health right after the health check is performed.
+            The time spent in this phase is set in <see cref="P:System.Fabric.Description.RollingUpgradeMonitoringPolicy.HealthCheckStableDuration" /> 
+            Failing the health check in stable duration will reset the duration and move the health check phase to Retry. </para>
+            </remarks>
+        </member>
+        <member name="F:System.Fabric.MonitoredUpgradeHealthCheckPhase.Retry">
+            <summary>
+            <para>Specifies the health check is in Retry phase.</para>
+            </summary>
+            <remarks>
+            <para>In this phase, Service Fabric retries the health check if the previous health check fails. If the health check passes, the health check moves to StableDuration.
+            The time spent in this phase is set in <see cref="P:System.Fabric.Description.RollingUpgradeMonitoringPolicy.HealthCheckRetryTimeout" /> </para>
             </remarks>
         </member>
         <member name="T:System.Fabric.Security.AzureActiveDirectoryMetadata">

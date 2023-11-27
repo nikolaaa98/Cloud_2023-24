@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.ServiceFabric.Services.Remoting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace CommonLibrary
 {
     [ServiceContract]
-    public interface ITransaction
+    public interface ITransaction : IService
     {
         [OperationContract]
         Task<bool> Prepare();

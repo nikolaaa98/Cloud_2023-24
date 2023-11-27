@@ -1,1 +1,2 @@
 C:\Users\User\Desktop\Biblioteka\Biblioteka\obj\x64\Debug\Biblioteka.sfproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Cloud_2023-24\Biblioteka\Biblioteka\obj\x64\Debug\Biblioteka.sfproj.CoreCompileInputs.cache

@@ -4,11 +4,12 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.ServiceFabric.Services.Remoting;
 
 namespace CommonLibrary
 {
     [ServiceContract]
-    public interface IBank
+    public interface IBank : IService
     {
         [OperationContract]
         Task<List<BankAccount>> ListClients();

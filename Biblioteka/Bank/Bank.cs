@@ -42,7 +42,7 @@ namespace Bank
         private ICommunicationListener CreateWcfCommunicationListener(ServiceContext context)
         {
 
-            EndpointResourceDescription internalEndpoint = context.CodePackageActivationContext.GetEndpoint("BankCommunication");
+            EndpointResourceDescription internalEndpoint = context.CodePackageActivationContext.GetEndpoint("BankEndpoint");
             string uriPrefix = String.Format(
                    "{0}://+:{1}/{2}/{3}-{4}/",
                    internalEndpoint.Protocol,
