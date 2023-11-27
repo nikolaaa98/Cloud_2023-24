@@ -59,15 +59,8 @@ namespace Client.Controllers
                 List<Book> books = new List<Book>();
                 books = await proxy.ListAvailableItem();
                 ViewBag.AvailableBooks = books;
-
-                foreach (Book bk in books)
-                {
-                    if (bk.BookId == bookID)
-                    {
-                        ViewBag.ItemPrice = bk.Price;
-                    }
-                }
-
+                ViewBag.ItemPrice = await proxy.GetItemPrice(bookID);
+              
                 return View();
             }
 
