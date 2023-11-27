@@ -3,4 +3,24 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<form action="/Home/ValidateBook" method="post">
+    <label>BookId : </label>
+    <input type="text" name="bookID" />
+    <br />
+    <label>Price</label>
+    <input type="number" name="price" />
+    <br />
+    <label>Name</label>
+    <input type="text" name="name" />
+    <br />
+    <label>Writter Name : </label>
+    <input type="text" name="writterName" />
+    <br />
+    <label>Quantity</label>
+    <input type="number" name="quantity" />
+    <br />
+    <input type="submit" value="Send" />
+</form>
+
+<p> List of available items : </p> @ViewBag.AvailableBooks
+<p> Price of item : </p> @ViewBag.ItemPrice

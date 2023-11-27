@@ -23,6 +23,7 @@ namespace Client.Controllers
 
         public IActionResult Privacy()
         {
+            ViewBag.AvailableBooks = "";
             return View();
         }
 
@@ -32,9 +33,51 @@ namespace Client.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        
+        [HttpPost]
+        public async Task<ActionResult<bool>> Validate(FormModel model)
+        {
+            try
+            {
+                IValidator proxy = ServiceProxy.Create<IValidator>(new Uri("fabric:/Biblioteka/Validator"));
+                TempData["Result"] = await proxy.Validate(model);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["Result"] = "Error in communication with service " + ex.Message;
+                return RedirectToAction("Index");
+            }
+
+        }
    
-        
+        public async Task<ActionResult<Book>> ValidateBook(string bookID, double price, string name, string writterName, int quantity)
+        {
+            try
+            {
+                IBookStore proxy = ServiceProxy.Create<IBookStore>(new Uri("fabric:/Biblioteka/BookStore"));
+                Book b = new Book(bookID, price, name, writterName, quantity);
+                List<Book> books = new List<Book>();
+                books = await proxy.ListAvailableItem();
+                ViewBag.AvailableBooks = books;
+
+                foreach (Book bk in books)
+                {
+                    if (bk.BookId == bookID)
+                    {
+                        ViewBag.ItemPrice = bk.Price;
+                    }
+                }
+
+                return View();
+            }
+
+            catch (Exception ex)
+            {
+                ViewBag.Result = "Error in communication with service " + ex.Message;
+                return RedirectToAction("Privacy");
+            }
+        }
 
     }
 }
+
